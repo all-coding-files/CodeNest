@@ -602,11 +602,7 @@ function renderHome() {
       <header class="home-topbar">
 
         <div class="brand">
-  <img
-  class="brand-logo"
-  src={`${import.meta.env.BASE_URL}codenest.png`}
-  alt="CodeNest"
-/>
+  <img class="brand-logo" src="${import.meta.env.BASE_URL}codenest.png" alt="CodeNest" />
 
   <div>
     <strong>CodeNest</strong>
