@@ -2392,9 +2392,7 @@ function renderEditor() {
 
         <div class="brand">
 
-          <div class="brand-mark">
-            E
-          </div>
+          <img class="brand-logo" src="${import.meta.env.BASE_URL}codenest.png" alt="CodeNest" />
 
           <div>
             <strong>CodeNest</strong>
