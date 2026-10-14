@@ -39,7 +39,7 @@ import {
    BOTPRESS TYPES
    ========================= */
 
-interface Echo11Botpress {
+interface CodeNestBotpress {
   open: () => void;
   close: () => void;
   toggle: () => void;
@@ -53,7 +53,7 @@ interface Echo11Botpress {
 
 declare global {
   interface Window {
-    botpress?: Echo11Botpress;
+    botpress?: CodeNestBotpress;
   }
 }
 
@@ -94,7 +94,7 @@ type TreeSelection =
    ========================= */
 
 const STORAGE_KEY =
-  "echo11-projects";
+  "CodeNest-projects";
 
 
 /* =========================
@@ -113,7 +113,7 @@ const starterProject: Project = {
       name: "index.html",
 
       content: `<main class="hero">
-  <p class="eyebrow">ECHO11</p>
+  <p class="eyebrow">CODENEST</p>
 
   <h1>Build something.</h1>
 
@@ -188,7 +188,7 @@ button:hover {
       name: "script.js",
 
       content: `document.querySelector("#demoButton")?.addEventListener("click", () => {
-  alert("Hello from Echo11!");
+  alert("Hello from CodeNest!");
 });`
     }
   ],
@@ -2213,8 +2213,8 @@ async function handleHomeUpload(
   render();
 }
 
-/* =========================
-   ECHO11 AI
+/* ========================
+        CodeNestAI
    ========================= */
 
 let botpressReady = false;
@@ -2244,7 +2244,7 @@ function getProjectCodeForAI(project: Project): string {
     .join("\n\n");
 }
 
-async function askEcho11AI() {
+async function askCodeNestAI() {
   const project = getActiveProject();
   const file = getActiveFile();
 
@@ -2263,7 +2263,7 @@ async function askEcho11AI() {
 
   if (!botpress) {
     alert(
-      "Echo11 AI is still loading. Please wait a moment and try again."
+      "CodeNest AI is still loading. Please wait a moment and try again."
     );
     return;
   }
@@ -2273,7 +2273,7 @@ async function askEcho11AI() {
   const code = getProjectCodeForAI(project);
 
   const message = [
-    "You are Echo11 AI, the coding assistant built into the Echo11 code editor.",
+    "You are CodeNest AI, the coding assistant built into the CodeNest code editor.",
     "",
     `Project: ${project.name}`,
     `Currently open file: ${file.name}`,
@@ -2283,7 +2283,7 @@ async function askEcho11AI() {
     code,
     "",
     "Help the user with the currently open file first. Find real bugs, explain the problem clearly, and provide corrected code or an exact patch when useful.",
-    "Do not claim that you directly changed the user's Echo11 files. The user must apply your suggested changes.",
+    "Do not claim that you directly changed the user's CodeNest files. The user must apply your suggested changes.",
     "Preserve the existing design and functionality unless the user asks for a redesign.",
     "If the code is already correct, say so rather than inventing a problem."
   ].join("\n");
@@ -2310,7 +2310,7 @@ async function askEcho11AI() {
       try {
         await botpress.sendMessage(message);
       } catch (error) {
-        console.error("Echo11 AI message failed:", error);
+        console.error("CodeNest AI message failed:", error);
       }
     };
 
@@ -2335,13 +2335,13 @@ async function askEcho11AI() {
           unsubscribe?.();
           await botpress.sendMessage(message);
         } catch (error) {
-          console.error("Echo11 AI message failed:", error);
+          console.error("CodeNest AI message failed:", error);
         }
       }
     }, 800);
   } catch (error) {
-    console.error("Could not contact Echo11 AI:", error);
-    alert("Echo11 AI could not be opened. Check that the Botpress Webchat is published.");
+    console.error("Could not contact CodeNest AI:", error);
+    alert("CodeNest AI could not be opened. Check that the Botpress Webchat is published.");
   }
 }
 
@@ -2401,7 +2401,7 @@ function renderEditor() {
           </div>
 
           <div>
-            <strong>Echo11</strong>
+            <strong>CodeNest</strong>
             <span>Code Studio</span>
           </div>
 
@@ -2551,7 +2551,7 @@ function renderEditor() {
           <div class="breadcrumbs">
 
             <span>
-              Echo11
+              CodeNest
             </span>
 
             <span class="slash">
@@ -2571,9 +2571,9 @@ function renderEditor() {
 
             <button
               class="top-button ai-button"
-              id="askEcho11AI"
+              id="askCodeNestAI"
             >
-              ✦ Ask Echo11 AI
+              ✦ Ask CodeNest AI
             </button>
 
             <button
@@ -2812,7 +2812,7 @@ function renderEditor() {
 
   createCodeMirror(
     file?.isBinary
-      ? `Binary file\n\n${file.name}\n\nThis file is stored in your Echo11 project and can be used by the live preview.`
+      ? `Binary file\n\n${file.name}\n\nThis file is stored in your CodeNest project and can be used by the live preview.`
       : file?.content ?? "",
     Boolean(file?.isBinary)
   );
@@ -3354,7 +3354,7 @@ function wireEditorEvents() {
           projects.length === 1
         ) {
           alert(
-            "Echo11 needs at least one project."
+            "CodeNest needs at least one project."
           );
 
           return;
@@ -3408,11 +3408,11 @@ function wireEditorEvents() {
 
   document
     .querySelector(
-      "#askEcho11AI"
+      "#askCodeNestAI"
     )
     ?.addEventListener(
       "click",
-      askEcho11AI
+      askCodeNestAI
     );
 
 
@@ -4024,7 +4024,7 @@ function downloadProject() {
   }
 
   const projectFile = {
-    echo11:
+    CodeNest:
       true,
 
     version:
@@ -4055,10 +4055,10 @@ function downloadProject() {
       )
       .toLowerCase()
       ||
-      "echo11-project";
+      "CodeNest-project";
 
   downloadFile(
-    `${safeName}.echo11.json`,
+    `${safeName}.CodeNest.json`,
     JSON.stringify(
       projectFile,
       null,
@@ -4069,7 +4069,7 @@ function downloadProject() {
 
 
 /* =========================
-   START ECHO11
+   START CodeNest
    ========================= */
 
 render();
