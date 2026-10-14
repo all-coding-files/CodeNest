@@ -602,10 +602,10 @@ function renderHome() {
       <header class="home-topbar">
 
         <div class="brand">
-  <img class="brand-logo" src="${import.meta.env.BASE_URL}Echo11.png" alt="Echo11">
+  <img class="brand-logo" src="codenest" alt="Echo11">
 
   <div>
-    <strong>Echo11</strong>
+    <strong>CodeNest</strong>
     <span>Code Studio</span>
   </div>
 </div>
@@ -625,7 +625,7 @@ function renderHome() {
         <section class="home-hero">
 
           <p class="home-eyebrow">
-            WELCOME TO ECHO11
+            WELCOME TO CodeNest
           </p>
 
           <h1>
