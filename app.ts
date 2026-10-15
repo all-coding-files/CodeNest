@@ -625,7 +625,7 @@ function renderHome() {
         <section class="home-hero">
 
           <p class="home-eyebrow">
-            WELCOME TO CodeNest
+            WELCOME TO CODENEST
           </p>
 
           <h1>
